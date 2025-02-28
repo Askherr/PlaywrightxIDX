@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+// Sebelum Test harus siapkan file template_margin.xlsx di folder file_upload
+
+
+
 test('login', async ({ page }) => {
   // Set timeout untuk seluruh test
   test.setTimeout(60000); // Set timeout menjadi 60 detik
@@ -32,7 +36,7 @@ test('login', async ({ page }) => {
   // Locator Upload
   await page.locator('xpath=/html/body/div[2]/div[2]/div[2]/div/div[1]/div/button').click();
   await page.locator('[name="upload_file"]').setInputFiles('/file_upload/template_margin.xlsx');
-  
+  await page.waitForTimeout(2000);
 
   // Save
   await page.locator('button[type="submit"]').click();
