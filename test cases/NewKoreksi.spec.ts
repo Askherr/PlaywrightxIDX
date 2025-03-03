@@ -20,7 +20,7 @@ test('login', async ({ page }) => {
 
 
 // Mulai Looping
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
 
 
   // Navigasi ke halaman Koreksi
@@ -51,9 +51,9 @@ for (let i = 0; i < 2; i++) {
   await KodeEfek.click();
   await page.locator('xpath=/html/body/span/span/span[1]/input').fill('AKKU');
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(4000);
   expect(await page.locator('[name="security_name"]').getByText('Anugerah Kagum Karya Utama Tbk.')).toBeTruthy();
-  await NoTrade.fill('119922');
+  await NoTrade.fill(String(Math.floor(Math.random() * 10000)));
   await KodeAB.selectOption('KMU');
   await Reason.fill('BEBAS');
   await CheckHarga.check();

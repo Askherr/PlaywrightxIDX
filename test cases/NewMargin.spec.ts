@@ -8,7 +8,7 @@ test('login', async ({ page }) => {
   await page.goto('https://devidxrecord.idx.id/admin'); 
   
   // Isi username dan password
-  await page.getByRole('textbox', { name: 'Username' }).fill('maker-hij');
+  await page.getByRole('textbox', { name: 'Username' }).fill('maker-hij-tes');
   await page.getByRole('textbox', { name: 'Password' }).fill('123');
   // await page.waitForTimeout(6000);
 
@@ -20,11 +20,13 @@ test('login', async ({ page }) => {
 
 
 // Mulai Looping
-// for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 100; i++) {
 
 
   // Navigasi ke halaman Margin
   await page.goto('https://devidxrecord.idx.id/admin/transaction-margin');
+  
+
   
   // Klik tombol "Add New"
   await page.locator('.btn-add-new').click();
@@ -47,8 +49,8 @@ test('login', async ({ page }) => {
 
   
   // Isi Form
-  await Notransaction.fill('1000');
-  await Noorder.fill('2000');
+  await Notransaction.fill(String(Math.floor(Math.random() * 10000)));
+  await Noorder.fill(String(Math.floor(Math.random() * 10000)));
   await waktu.fill("18:00");
   await BS.selectOption('B');
   await secode.fill('PLAY');
@@ -66,6 +68,6 @@ test('login', async ({ page }) => {
   await page.waitForTimeout(2000);
 
 // Hapus looping 
-// }
+}
 
 });

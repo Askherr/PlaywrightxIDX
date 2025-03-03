@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('login', async ({ page }) => {
   // Set timeout untuk seluruh test
-  test.setTimeout(60000); // Set timeout menjadi 60 detik
+  test.setTimeout(120000); // Set timeout menjadi 60 detik
 
   // Login
   await page.goto('https://devidxrecord.idx.id/admin'); 
@@ -20,7 +20,7 @@ test('login', async ({ page }) => {
 
 
 // Mulai Looping
-// for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
 
 
   // Navigasi ke halaman Trading
@@ -29,6 +29,7 @@ test('login', async ({ page }) => {
   // Klik tombol "Add New"
   await page.locator('xpath=/html/body/div[2]/div[2]/div[2]/div/div[1]/div[1]/a').click();
 
+  await page.waitForTimeout(3000);
   // Klik tombol "Add" dan isi data manual
   await page.locator('xpath=/html/body/div[2]/div[2]/div[2]/div/div[3]/div/div/div/div/form/div[4]/a').click();
 
@@ -45,13 +46,13 @@ test('login', async ({ page }) => {
 
   
   // Isi Form
-  await Noorder.fill('2000');
+  await Noorder.fill(String(Math.floor(Math.random() * 10000)));
   await secode.selectOption('BNII');
   await pasar.selectOption('RG');
   await BS.selectOption('Jual');
 
-  await trade1.fill('200');
-  await trade2.fill('300');
+  await trade1.fill(String(Math.floor(Math.random() * 10000)));
+  await trade2.fill(String(Math.floor(Math.random() * 10000)));
   await reason.fill('Koreksi TRD');
 
   // Save
@@ -59,9 +60,9 @@ test('login', async ({ page }) => {
 
 
 
-  await page.waitForTimeout(5000);
+  // await page.waitForTimeout(4000);
 
 // Hapus looping 
-// }
+}
 
 });
