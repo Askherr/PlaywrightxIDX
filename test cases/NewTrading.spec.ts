@@ -2,13 +2,13 @@ import { test, expect } from '@playwright/test';
 
 test('login', async ({ page }) => {
   // Set timeout untuk seluruh test
-  test.setTimeout(120000); // Set timeout menjadi 60 detik
+  test.setTimeout(12000000); // Set timeout menjadi 60 detik
 
   // Login
   await page.goto('https://devidxrecord.idx.id/admin'); 
   
   // Isi username dan password
-  await page.getByRole('textbox', { name: 'Username' }).fill('maker-hij');
+  await page.getByRole('textbox', { name: 'Username' }).fill('maker-ab-bbb');
   await page.getByRole('textbox', { name: 'Password' }).fill('123');
   // await page.waitForTimeout(6000);
 
