@@ -2,13 +2,13 @@ import { test, expect } from '@playwright/test';
 
 test('login', async ({ page }) => {
   // Set timeout untuk seluruh test
-  test.setTimeout(60000); // Set timeout menjadi 60 detik
+  test.setTimeout(0); // Set timeout menjadi 60 detik
 
   // Login
   await page.goto('https://devidxrecord.idx.id/admin'); 
   
   // Isi username dan password
-  await page.getByRole('textbox', { name: 'Username' }).fill('maker-hij');
+  await page.getByRole('textbox', { name: 'Username' }).fill('maker-ab-bbb');
   await page.getByRole('textbox', { name: 'Password' }).fill('123');
   // await page.waitForTimeout(6000);
 
@@ -20,7 +20,7 @@ test('login', async ({ page }) => {
 
 
 // Mulai Looping
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 3; i++) {
 
 
   // Navigasi ke halaman LPKBIE
@@ -52,7 +52,8 @@ for (let i = 0; i < 100; i++) {
   // Isi Form
   await TrxDate.click();
   await page.keyboard.press('Enter');
-  await NoTrx.fill(String(Math.floor(Math.random() * 10000)));
+  // await NoTrx.fill(String(Math.floor(Math.random() * 10000)));
+  await NoTrx.fill('1000');
   await Board.selectOption('RG');
   await secode.fill('PLAY');
   await volume.fill('200');

@@ -8,7 +8,7 @@ test('login', async ({ page }) => {
   await page.goto('https://devidxrecord.idx.id/admin'); 
   
   // Isi username dan password
-  await page.getByRole('textbox', { name: 'Username' }).fill('maker-hij');
+  await page.getByRole('textbox', { name: 'Username' }).fill('maker-ab-bbb');
   await page.getByRole('textbox', { name: 'Password' }).fill('123');
   // await page.waitForTimeout(6000);
 
@@ -20,7 +20,7 @@ test('login', async ({ page }) => {
 
 
 // Mulai Looping
-// for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 3; i++) {
 
 
   // Navigasi ke halaman LPSW
@@ -51,8 +51,8 @@ test('login', async ({ page }) => {
   // Isi Form
   await TrxDate.click();
   await page.keyboard.press('Enter');
-  // await NoTrx.fill('1000');
-  await NoTrx.fill(String(Math.floor(Math.random() * 10000)));
+  await NoTrx.fill('1000');
+  // await NoTrx.fill(String(Math.floor(Math.random() * 10000)));
   await Board.selectOption('RG');
   await secode.fill('PLAY');
   await volume.fill('200');
@@ -72,6 +72,6 @@ test('login', async ({ page }) => {
   await page.waitForTimeout(5000);
 
 // Hapus looping 
-// }
+}
 
 });
